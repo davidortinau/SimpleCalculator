@@ -20,4 +20,8 @@
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="App.xaml" />
+    <None Include="MainPage.xaml" />
+  </ItemGroup>
 </Project>

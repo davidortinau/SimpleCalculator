@@ -28,6 +28,9 @@ namespace SimpleCalculator
                     currentState *= -1;
             }
 
+            if (pressed == ".")
+                pressed = ".00";// not optimistic
+
             this.resultText.Text += pressed;
 
             double number;
@@ -65,26 +68,40 @@ namespace SimpleCalculator
         {
             if (currentState == 2)
             {
-                var result = Calculator.Calculate(firstNumber, secondNumber, mathOperator);
+                double result = Calculator.Calculate(firstNumber, secondNumber, mathOperator);
 
-                this.resultText.Text = result.ToString();
+                this.CurrentCalculation.Text = $"{firstNumber} {mathOperator} {secondNumber}";
+
+                this.resultText.Text = result.ToTrimmedString();
                 firstNumber = result;
                 currentState = -1;
+
+                
             }
         }
 
+        
+
         void OnNegative(object sender, EventArgs e)
         {
-            secondNumber = -1;
-            mathOperator = "x";
-            OnCalculate(this, null);
+            if (currentState == 1)
+            {
+                secondNumber = -1;
+                mathOperator = "×";
+                currentState = 2;
+                OnCalculate(this, null);
+            }
         }
 
         void OnPercentage(object sender, EventArgs e)
         {
-            secondNumber = 0.01;
-            mathOperator = "x";
-            OnCalculate(this, null);
+            if (currentState == 1)
+            {
+                secondNumber = 0.01;
+                mathOperator = "×";
+                currentState = 2;
+                OnCalculate(this, null);
+            }
 
         }
 
