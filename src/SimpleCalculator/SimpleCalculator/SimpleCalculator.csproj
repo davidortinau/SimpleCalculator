@@ -24,4 +24,13 @@
     <None Include="App.xaml" />
     <None Include="MainPage.xaml" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Common\" />
+    <Folder Include="Common\Styles\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Common\Styles\SunTheme.xaml.cs">
+      <DependentUpon>SunTheme.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
 </Project>

@@ -4,21 +4,20 @@
             xmlns:local="clr-namespace:SimpleCalculator"
             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
             ios:Page.UseSafeArea="False"
-             BackgroundColor="{StaticResource PrimaryColor}"
+            BackgroundColor="{DynamicResource PrimaryColor}"
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
     <ContentPage.Resources>
         <ResourceDictionary>
-            <Color x:Key="PrimaryColor">#FFFCE6</Color>
-            <Color x:Key="SecondaryColor">#7D1424</Color>
+            
 
         <Style TargetType="Label">
-            <Setter Property="TextColor" Value="{StaticResource SecondaryColor}"/>
+            <Setter Property="TextColor" Value="{DynamicResource SecondaryColor}"/>
         </Style>
 
         <Style TargetType="Button">
             <Setter Property="BackgroundColor" Value="Transparent"/>
-            <Setter Property="TextColor" Value="{StaticResource SecondaryColor}"/>
+            <Setter Property="TextColor" Value="{DynamicResource SecondaryColor}"/>
             <Setter Property="FontSize" Value="36"/>
         </Style>
         </ResourceDictionary>
@@ -37,9 +36,11 @@
           ColumnDefinitions="*,*,*,*"
           >
 
+        
+
         <Label x:Name="CurrentCalculation"
                FontSize="22"
-               TextColor="{StaticResource SecondaryColor}"
+               TextColor="{DynamicResource SecondaryColor}"
                LineBreakMode="NoWrap"
                Grid.ColumnSpan="4"
                Text="2 x 4"
@@ -53,7 +54,7 @@
                VerticalTextAlignment="End"
               LineBreakMode="NoWrap" Grid.ColumnSpan="4" />
 
-        <BoxView BackgroundColor="{StaticResource SecondaryColor}" HeightRequest="1"
+        <BoxView BackgroundColor="{DynamicResource SecondaryColor}" HeightRequest="1"
                  Grid.Row="0" VerticalOptions="End"
                  Grid.ColumnSpan="4"
                  />
@@ -106,6 +107,12 @@
 
         <Button Text="=" Grid.Row="5" Grid.Column="3" 
                Clicked="OnCalculate" />
+
+        <Button x:Name="ThemeSwitcher"
+                Clicked="ThemeSwitcher_Clicked"
+                Grid.ColumnSpan="4"
+                
+                />
 
     </Grid>
 </ContentPage>
