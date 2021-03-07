@@ -34,9 +34,9 @@ namespace SimpleCalculator
 
     public static class DoubleExtensions
     {
-        public static string ToTrimmedString(this double target)
+        public static string ToTrimmedString(this double target, string decimalFormat)
         {
-            string strValue = target.ToString(); //Get the stock string
+            string strValue = target.ToString(decimalFormat); //Get the stock string
 
             //If there is a decimal point present
             if (strValue.Contains("."))

@@ -9,20 +9,24 @@
 
     <ContentPage.Resources>
         <ResourceDictionary>
-            
+            <OnPlatform x:TypeArguments="x:String"
+                        x:Key="DisplayFont"
+                        Default=""
+                        />
 
-        <Style TargetType="Label">
-            <Setter Property="TextColor" Value="{DynamicResource SecondaryColor}"/>
-        </Style>
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="{DynamicResource SecondaryColor}"/>
+                <Setter Property="FontFamily" Value="{DynamicResource DisplayFont}"/>
+            </Style>
 
-        <Style TargetType="Button">
-            <Setter Property="BackgroundColor" Value="Transparent"/>
-            <Setter Property="TextColor" Value="{DynamicResource SecondaryColor}"/>
-            <Setter Property="FontSize" Value="36"/>
-        </Style>
+            <Style TargetType="Button">
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+                <Setter Property="TextColor" Value="{DynamicResource SecondaryColor}"/>
+                <Setter Property="FontSize" Value="36"/>
+                <Setter Property="FontFamily" Value="{DynamicResource DisplayFont}"/>
+            </Style>
+
         </ResourceDictionary>
-        
-
     </ContentPage.Resources>
 
     <ContentPage.Padding>
@@ -34,25 +38,39 @@
     <Grid Padding="16" RowSpacing="0" ColumnSpacing="0"
           RowDefinitions="2*,*,*,*,*,*"
           ColumnDefinitions="*,*,*,*"
+          x:Name="Container"
           >
 
-        
+        <BoxView BackgroundColor="{DynamicResource SecondaryColor}"
+                 Opacity="0"
+                 Grid.RowSpan="6"
+                 Grid.ColumnSpan="4"
+                 x:Name="FlashBox">
+            <BoxView.Margin>
+                <OnPlatform x:TypeArguments="Thickness"
+                            Default="-16"
+                            >
+                    <OnPlatform.iOS>-16,-36,-16,-16</OnPlatform.iOS>
+                </OnPlatform>
+            </BoxView.Margin>
+        </BoxView>
 
         <Label x:Name="CurrentCalculation"
                FontSize="22"
                TextColor="{DynamicResource SecondaryColor}"
                LineBreakMode="NoWrap"
                Grid.ColumnSpan="4"
-               Text="2 x 4"
+               Text=""
                HorizontalTextAlignment="End"
                VerticalTextAlignment="Center"
                Grid.Row="0"/>
 
         <Label x:Name="resultText"
+               FontFamily="{DynamicResource DisplayFont}"
                FontSize="64" FontAttributes="Bold" Text="0"
-              HorizontalTextAlignment="End"
+               HorizontalTextAlignment="End"
                VerticalTextAlignment="End"
-              LineBreakMode="NoWrap" Grid.ColumnSpan="4" />
+               LineBreakMode="NoWrap" Grid.ColumnSpan="4" />
 
         <BoxView BackgroundColor="{DynamicResource SecondaryColor}" HeightRequest="1"
                  Grid.Row="0" VerticalOptions="End"

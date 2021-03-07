@@ -15,22 +15,11 @@
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
   </ItemGroup>
 
+  
   <ItemGroup>
-    <EmbeddedResource Update="MainPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </EmbeddedResource>
+    <None Remove="Common\Fonts\DigitalDismay.otf" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.xaml" />
-    <None Include="MainPage.xaml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Common\" />
-    <Folder Include="Common\Styles\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Update="Common\Styles\SunTheme.xaml.cs">
-      <DependentUpon>SunTheme.xaml</DependentUpon>
-    </Compile>
+    <EmbeddedResource Include="Common\Fonts\DigitalDismay.otf" />
   </ItemGroup>
 </Project>
