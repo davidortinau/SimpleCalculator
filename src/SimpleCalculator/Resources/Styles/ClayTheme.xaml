@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="SimpleCalculator.Common.Styles.ClayTheme">
+
+    <Color x:Key="PrimaryColor">#7D1424</Color>
+    <Color x:Key="SecondaryColor">#FFFCE6</Color>
+
+</ResourceDictionary>
