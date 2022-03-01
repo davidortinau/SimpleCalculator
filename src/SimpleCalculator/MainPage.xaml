@@ -8,7 +8,7 @@
         <ResourceDictionary>
             <OnPlatform x:TypeArguments="x:String"
                         x:Key="DisplayFont"
-                        Default="DigitalDismay"
+                        Default=""
                         />
 
             <Style TargetType="Label">
@@ -21,21 +21,49 @@
                 <Setter Property="TextColor" Value="{DynamicResource SecondaryColor}"/>
                 <Setter Property="FontSize" Value="36"/>
                 <Setter Property="FontFamily" Value="{DynamicResource DisplayFont}"/>
+                <Setter Property="Margin" Value="8"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="WidthRequest" Value="80"/>
+                <Setter Property="HeightRequest" Value="80"/>
+                <Setter Property="BorderWidth" Value="0"/>
+            </Style>
+
+            <Style TargetType="Button" Class="Operator">
+                <Setter Property="CornerRadius" Value="40"/>
+                <Setter Property="Background" Value="{DynamicResource SecondaryColor}"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="Shadow" Value="{Shadow Brush=Black, Offset='8,8', Opacity=0.4, Radius=16}"/>
+            </Style>
+
+            <Style TargetType="Button" Class="Functions">
+                <Setter Property="Background" Value="{DynamicResource TertiaryColor}"/>
+                <Setter Property="TextColor" Value="{DynamicResource SecondaryColor}"/>
+                <Setter Property="CornerRadius" Value="40"/>
+                <!--<Setter Property="Shadow" Value="{Shadow Brush=Black, Offset='8,8', Opacity=0.4, Radius=16}"/>-->
             </Style>
 
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    <Grid Padding="16" RowSpacing="0" ColumnSpacing="0"
-          RowDefinitions="2*,*,*,*,*,*"
+    <Grid Margin="16" 
+          RowDefinitions="2*,60,*,*,*,*,*"
           ColumnDefinitions="*,*,*,*"
           x:Name="Container"
           >
 
+        <Image Source="dotnet_twenty.png"
+               x:Name="BlitzImage"
+               Grid.RowSpan="7"
+               Grid.ColumnSpan="4"
+               IsVisible="False"
+               Margin="-16"
+               Aspect="AspectFill"/>
+
         <BoxView BackgroundColor="{DynamicResource SecondaryColor}"
                  Opacity="0"
-                 Grid.RowSpan="6"
+                 Grid.RowSpan="7"
                  Grid.ColumnSpan="4"
+                 Margin="-16"
                  x:Name="FlashBox"/>
 
 
@@ -57,64 +85,79 @@
                LineBreakMode="NoWrap" Grid.ColumnSpan="4" />
 
         <BoxView BackgroundColor="{DynamicResource SecondaryColor}" HeightRequest="1"
-                 Grid.Row="0" VerticalOptions="End"
+                 Grid.Row="1" VerticalOptions="Center"
                  Grid.ColumnSpan="4"
                  />
 
-        <Button Text="C" Grid.Row="1" Grid.Column="0"
+        <Button Text="C" Grid.Row="2" Grid.Column="0"
+                StyleClass="Functions"
                Clicked="OnClear" />
-        <Button Text="+/-" Grid.Row="1" Grid.Column="1"
+        <Button Text="+/-" Grid.Row="2" Grid.Column="1"
+                StyleClass="Functions"
                Clicked="OnNegative" />
-        <Button Text="%" Grid.Row="1" Grid.Column="2"
+        <Button Text="%" Grid.Row="2" Grid.Column="2"
+                StyleClass="Functions"
                Clicked="OnPercentage" />
 
-        <Button Text="7" Grid.Row="2" Grid.Column="0"
+        <Button Text="7" Grid.Row="3" Grid.Column="0"
                Clicked="OnSelectNumber" />
-        <Button Text="8" Grid.Row="2" Grid.Column="1"
+        <Button Text="8" Grid.Row="3" Grid.Column="1"
                Clicked="OnSelectNumber" />
-        <Button Text="9" Grid.Row="2" Grid.Column="2"
+        <Button Text="9" Grid.Row="3" Grid.Column="2"
                Clicked="OnSelectNumber" />
 
-        <Button Text="4" Grid.Row="3" Grid.Column="0"
+        <Button Text="4" Grid.Row="4" Grid.Column="0"
               Clicked="OnSelectNumber" />
-        <Button Text="5" Grid.Row="3" Grid.Column="1"
+        <Button Text="5" Grid.Row="4" Grid.Column="1"
               Clicked="OnSelectNumber" />
-        <Button Text="6" Grid.Row="3" Grid.Column="2"
-              Clicked="OnSelectNumber" />
-
-        <Button Text="1" Grid.Row="4" Grid.Column="0"
-              Clicked="OnSelectNumber" />
-        <Button Text="2" Grid.Row="4" Grid.Column="1"
-              Clicked="OnSelectNumber" />
-        <Button Text="3" Grid.Row="4" Grid.Column="2"
+        <Button Text="6" Grid.Row="4" Grid.Column="2"
               Clicked="OnSelectNumber" />
 
-        <Button Text="00" Grid.Row="5" Grid.Column="0" 
+        <Button Text="1" Grid.Row="5" Grid.Column="0"
               Clicked="OnSelectNumber" />
-        <Button Text="0" Grid.Row="5" Grid.Column="1" 
+        <Button Text="2" Grid.Row="5" Grid.Column="1"
               Clicked="OnSelectNumber" />
-        <Button Text="." Grid.Row="5" Grid.Column="2" 
+        <Button Text="3" Grid.Row="5" Grid.Column="2"
               Clicked="OnSelectNumber" />
 
-        <Button Text="÷" Grid.Row="1" Grid.Column="3"
+        <Button Text="00" Grid.Row="6" Grid.Column="0" 
+              Clicked="OnSelectNumber" />
+        <Button Text="0" Grid.Row="6" Grid.Column="1" 
+              Clicked="OnSelectNumber" />
+        <Button Text="." Grid.Row="6" Grid.Column="2" 
+              Clicked="OnSelectNumber" />
+
+        <Button Text="÷" Grid.Row="2" Grid.Column="3"
+                StyleClass="Operator"
                Clicked="OnSelectOperator" />
-        <Button Text="×" Grid.Row="2" Grid.Column="3"
+        <Button Text="×" Grid.Row="3" Grid.Column="3"
+                StyleClass="Operator"
                Clicked="OnSelectOperator" />
-        <Button Text="-" Grid.Row="3" Grid.Column="3"
+        <Button Text="-" Grid.Row="4" Grid.Column="3"
+                StyleClass="Operator"
                Clicked="OnSelectOperator" />
-        <Button Text="+" Grid.Row="4" Grid.Column="3"
+        <Button Text="+" Grid.Row="5" Grid.Column="3"
+                StyleClass="Operator"
                Clicked="OnSelectOperator" />
 
 
 
-        <Button Text="=" Grid.Row="5" Grid.Column="3" 
+        <Button Text="=" Grid.Row="6" Grid.Column="3" 
+                StyleClass="Operator"
+                Background="Black"
                Clicked="OnCalculate" />
 
         <Button x:Name="ThemeSwitcher"
                 Clicked="ThemeSwitcher_Clicked"
                 Grid.ColumnSpan="4"
-                
-                />
+                HorizontalOptions="Fill"
+                Background="Black"
+                IsVisible="False"
+                >
+            <Button.Shadow>
+                <Shadow Brush="Transparent"/>
+            </Button.Shadow>
+        </Button>
 
     </Grid>
 </ContentPage>

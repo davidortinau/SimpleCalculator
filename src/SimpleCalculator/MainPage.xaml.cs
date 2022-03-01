@@ -122,6 +122,7 @@ public partial class MainPage : ContentPage
             this.Resources["DisplayFont"] = "";
         }
         
+        BlitzImage.IsVisible = false;
         firstNumber = 0;
         secondNumber = 0;
         currentState = 1;
@@ -211,6 +212,7 @@ public partial class MainPage : ContentPage
         isBlitzing = true;
         await Task.Delay(200);
 
+        BlitzImage.IsVisible = true;
         await FlashBox.FadeTo(0.4, 200);
         await FlashBox.FadeTo(0.0, 100);
         await FlashBox.FadeTo(0.8, 200);
@@ -222,7 +224,7 @@ public partial class MainPage : ContentPage
         await FlashBox.FadeTo(1, 80);
         await FlashBox.FadeTo(0.0, 100);
 
-        this.Resources["DisplayFont"] = "Dismay";
+        this.Resources["DisplayFont"] = "DigitalDismay";
 
         await Task.Delay(1000);
 

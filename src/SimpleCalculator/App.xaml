@@ -4,6 +4,6 @@
              xmlns:local="clr-namespace:SimpleCalculator"
              x:Class="SimpleCalculator.App">
     <Application.Resources>
-        <ResourceDictionary Source="Resources/Styles/LavaTheme.xaml"/>
+        <ResourceDictionary Source="Resources/Styles/SunTheme.xaml"/>
     </Application.Resources>
 </Application>
